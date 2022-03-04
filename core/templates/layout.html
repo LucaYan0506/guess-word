@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess word</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1 style="margin:10px 0">Guess word</h1>
+    <b id="help-icon">?</b>
+    <hr>
+    <h3 style="font-weight: normal;margin:0;">The word will update after</h3>
+
+    <div style="min-height:calc(100vh - 217px);">
+        {% block timer %}{% endblock timer %}
+        {% block body %}{% endblock body %}
+    </div>
+
+
+    <footer style="background-color: #333742;color:white;text-align: center;">
+        <div style="background-color: #1c1d20;padding:10px;color: gray;">
+            <a href="https://leetcode.com/lucayan0506/" target="_blank"><img src="https://api.iconify.design/simple-icons/leetcode.svg?width=48" alt="leetcode"></a>
+            <a href="https://github.com/LucaYan0506/YTMP3" target="_blank"><img src="https://ytmp3.herokuapp.com/static/github.png" alt="github"></a>
+            <a href="https://www.linkedin.com/in/zhongyi-yan/" target="_blank"><img src="https://ytmp3.herokuapp.com/static/linkedin.png" alt="linkedin"></a>
+            <img style="cursor:pointer" src="https://img.icons8.com/ios-filled/50/000000/donation.png" onclick="open_windows()"/>
+            <br><br>
+            ©Copyright yancompany. All Rights Reserved. <br>
+            Design by Zhong Yi Yan
+        </div>
+   </footer>
+
+    <script src="{% static 'index.js'%}"></script>
+</body>
+</html>
