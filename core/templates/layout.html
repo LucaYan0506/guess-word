@@ -15,10 +15,34 @@
     <b  class="icon" id="info" onclick="show_hide_info_view()">i</b>
     <hr>
 
-    <div style="position:relative;min-height: 550px;">
+    <div class="body">
         <h3 style="font-weight: normal;margin:0;">The word will update after</h3>
         {% block timer %}{% endblock timer %}
         {% block body %}{% endblock body %}
+    </div>
+
+    <div class="info-container" style="display:none">
+      <h2>About me</h2>
+          My name is Zhong and I'm a student at The Manchester College. <br>
+          During my free time, I did this website which is inspired by <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">wordle</a>. <br>
+          I've also done some other projects (click <a href="https://github.com/LucaYan0506" target="_blank">here</a> to see my projects). <br>
+          I've studied data structure and algorithms on <a href="https://leetcode.com/lucayan0506/" target="_blank">leetcode</a> since 2021.<br>
+          If you want to know more about me, check my <b><a href="https://www.linkedin.com/in/zhongyi-yan/" target="_blank">LinkedIn<a></b> account.<br>
+          Click <a href="#" onclick="open_windows()" target="_blank">here</a> if you want to support this website & my other projects. <br><br>
+
+          Thank you for using my website. <br><br>
+
+          If you have any suggestion or comments about it, pls contact me:<br>
+          <a href="mailto:lucayan0506@gmail.com">Zhong: lucayan0506@gmail.com</a>
+      <div id="footer">
+          <a href="https://leetcode.com/lucayan0506/" target="_blank"><img src="https://api.iconify.design/simple-icons/leetcode.svg?width=48" alt="leetcode"></a>
+          <a href="https://github.com/LucaYan0506/guess-word" target="_blank"><img src="https://ytmp3.herokuapp.com/static/github.png" alt="github"></a>
+          <a href="https://www.linkedin.com/in/zhongyi-yan/" target="_blank"><img src="https://ytmp3.herokuapp.com/static/linkedin.png" alt="linkedin"></a>
+          <img style="cursor:pointer" src="https://img.icons8.com/ios-filled/50/000000/donation.png" onclick="open_windows()"/>
+          <br><br>
+          ©Copyright yancompany. All Rights Reserved. <br>
+          Design by Zhong Yi Yan
+      </div>
     </div>
 
     <div class="keyboard">

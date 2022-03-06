@@ -31,11 +31,17 @@ setInterval(() => {
 
 
 function show_hide_info_view(){
-    const view = document.querySelector('.invisible-container');
-    if (view.style.display == 'block'){
-        view.style.display = 'none'
+    const info_view = document.querySelector('.info-container');
+    const keyboard = document.querySelector('.keyboard')
+    const body = document.querySelector('.body')
+    if (info_view.style.display == 'block'){
+        keyboard.style.display = 'block';
+        body.style.display = 'block';
+        info_view.style.display = 'none'
     }else{
-        view.style.display = 'block'
+        keyboard.style.display = 'none';
+        body.style.display = 'none';
+        info_view.style.display = 'block'
     }
 }
 
