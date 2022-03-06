@@ -28,3 +28,15 @@ setInterval(() => {
 
     timer.innerHTML = hours + "h " + min + "min " + sec + "sec";
 }, 1000);
+
+
+function show_hide_info_view(){
+    const view = document.querySelector('.invisible-container');
+    if (view.style.display == 'block'){
+        view.style.display = 'none'
+    }else{
+        view.style.display = 'block'
+    }
+}
+
+

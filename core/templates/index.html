@@ -2,40 +2,36 @@
 
 
 {% block timer %}
-<h3 id="timer" style="margin:0;">06h 00min 05sec</h3>
+<h3 id="timer" style="margin:0;">{{time}}</h3>
 {% endblock timer %}
 
 {% block body %}
+    <div class="invisible-container" style="display:none">
+        <h2>About me</h2>
+            My name is Zhong and I'm a student at The Manchester College. <br>
+            During my free time, I did this website which is inspired by <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">wordle</a>. <br>
+            I've also done some other projects (click <a href="https://github.com/LucaYan0506" target="_blank">here</a> to see my projects). <br>
+            I've studied data structure and algorithms on <a href="https://leetcode.com/lucayan0506/" target="_blank">leetcode</a> since 2021.<br>
+            If you want to know more about me, check my <b><a href="https://www.linkedin.com/in/zhongyi-yan/" target="_blank">LinkedIn<a></b> account.<br>
+            Click <a href="#" onclick="open_windows()" target="_blank">here</a> if you want to support this website & my other projects. <br><br>
+
+            Thank you for using my website. <br><br>
+
+            If you have any suggestion or comments about it, pls contact me:<br>
+            <a href="mailto:lucayan0506@gmail.com">Zhong: lucayan0506@gmail.com</a>
+        <div id="footer">
+            <a href="https://leetcode.com/lucayan0506/" target="_blank"><img src="https://api.iconify.design/simple-icons/leetcode.svg?width=48" alt="leetcode"></a>
+            <a href="https://github.com/LucaYan0506/guess-word" target="_blank"><img src="https://ytmp3.herokuapp.com/static/github.png" alt="github"></a>
+            <a href="https://www.linkedin.com/in/zhongyi-yan/" target="_blank"><img src="https://ytmp3.herokuapp.com/static/linkedin.png" alt="linkedin"></a>
+            <img style="cursor:pointer" src="https://img.icons8.com/ios-filled/50/000000/donation.png" onclick="open_windows()"/>
+            <br><br>
+            ©Copyright yancompany. All Rights Reserved. <br>
+            Design by Zhong Yi Yan
+        </div>
+    </div>
     <div id="table">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>10</div>
-        <div>11</div>
-        <div>12</div>
-        <div>13</div>
-        <div>14</div>
-        <div>15</div>
-        <div>16</div>
-        <div>17</div>
-        <div>18</div>
-        <div>19</div>
-        <div>20</div>
-        <div>21</div>
-        <div>22</div>
-        <div>23</div>
-        <div>24</div>
-        <div>25</div>
-        <div>26</div>
-        <div>27</div>
-        <div>28</div>
-        <div>29</div>
-        <div>30</div>
+        {% for i in range %}
+        <div id="cell-{{i}}"></div>
+        {% endfor %}
     </div>
 {% endblock body %}

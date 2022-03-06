@@ -7,31 +7,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess word</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'keyboard.css' %}">
 </head>
 <body>
-    <h1 style="margin:10px 0">Guess word</h1>
-    <b id="help-icon">?</b>
+    <h1 style="margin:10px 0"><a href="/" style="text-decoration: none;color:black">Guess word</a></h1>
+    <b  class="icon" id="help">?</b>
+    <b  class="icon" id="info" onclick="show_hide_info_view()">i</b>
     <hr>
-    <h3 style="font-weight: normal;margin:0;">The word will update after</h3>
 
-    <div style="min-height:calc(100vh - 217px);">
+    <div style="position:relative;min-height: 550px;">
+        <h3 style="font-weight: normal;margin:0;">The word will update after</h3>
         {% block timer %}{% endblock timer %}
         {% block body %}{% endblock body %}
     </div>
 
+    <div class="keyboard">
 
-    <footer style="background-color: #333742;color:white;text-align: center;">
-        <div style="background-color: #1c1d20;padding:10px;color: gray;">
-            <a href="https://leetcode.com/lucayan0506/" target="_blank"><img src="https://api.iconify.design/simple-icons/leetcode.svg?width=48" alt="leetcode"></a>
-            <a href="https://github.com/LucaYan0506/YTMP3" target="_blank"><img src="https://ytmp3.herokuapp.com/static/github.png" alt="github"></a>
-            <a href="https://www.linkedin.com/in/zhongyi-yan/" target="_blank"><img src="https://ytmp3.herokuapp.com/static/linkedin.png" alt="linkedin"></a>
-            <img style="cursor:pointer" src="https://img.icons8.com/ios-filled/50/000000/donation.png" onclick="open_windows()"/>
-            <br><br>
-            ©Copyright yancompany. All Rights Reserved. <br>
-            Design by Zhong Yi Yan
+        <div class="row alphaUpperLine">
+          <div class="q" onclick="enter_key(this.innerHTML)">Q</div>
+          <div class="w" onclick="enter_key(this.innerHTML)">W</div>
+          <div class="e" onclick="enter_key(this.innerHTML)">E</div>
+          <div class="r" onclick="enter_key(this.innerHTML)">R</div>
+          <div class="t" onclick="enter_key(this.innerHTML)">T</div>
+          <div class="y" onclick="enter_key(this.innerHTML)">Y</div>
+          <div class="u" onclick="enter_key(this.innerHTML)">U</div>
+          <div class="i" onclick="enter_key(this.innerHTML)">I</div>
+          <div class="o" onclick="enter_key(this.innerHTML)">O</div>
+          <div class="p" onclick="enter_key(this.innerHTML)">P</div>
         </div>
-   </footer>
+
+        <div class="row alphaMiddleLine">
+          <div class="extra-space"></div>
+          <div class="a" onclick="enter_key(this.innerHTML)">A</div>
+          <div class="s" onclick="enter_key(this.innerHTML)">S</div>
+          <div class="d" onclick="enter_key(this.innerHTML)">D</div>
+          <div class="f" onclick="enter_key(this.innerHTML)">F</div>
+          <div class="g" onclick="enter_key(this.innerHTML)">G</div>
+          <div class="h" onclick="enter_key(this.innerHTML)">H</div>
+          <div class="j" onclick="enter_key(this.innerHTML)">J</div>
+          <div class="k" onclick="enter_key(this.innerHTML)">K</div>
+          <div class="l" onclick="enter_key(this.innerHTML)">L</div>
+          <div class="extra-space"></div>
+        </div>
+
+        <div class="row alphaLowerLine">
+          <div class="enter" onclick="enter_key(this.innerHTML)">Enter</div>
+          <div class="z" onclick="enter_key(this.innerHTML)">Z</div>
+          <div class="x" onclick="enter_key(this.innerHTML)">X</div>
+          <div class="c" onclick="enter_key(this.innerHTML)">C</div>
+          <div class="v" onclick="enter_key(this.innerHTML)">V</div>
+          <div class="b" onclick="enter_key(this.innerHTML)">B</div>
+          <div class="n" onclick="enter_key(this.innerHTML)">N</div>
+          <div class="m" onclick="enter_key(this.innerHTML)">M</div>
+          <div class="backspace" onclick="enter_key(this.innerHTML)">DEL</div>
+        </div>
+      </div>
 
     <script src="{% static 'index.js'%}"></script>
+    <script src="{% static 'keyboard.js'%}"></script>
 </body>
 </html>

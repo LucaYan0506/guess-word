@@ -1,31 +1,71 @@
 body{
     text-align: center;
     margin: 0;
+    font-family:Arial, sans-serif;
 }
 
-#help-icon{
-    position: fixed;
-    left:20px;
-    top:10px;
+.icon{
     font-size: 2em;
-    padding:0 10px;
     cursor: pointer;
     border:solid 1px;
     border-radius: 45px;
+    user-select: none;
+}
+
+.icon:hover{
+    background-color: gray;
+    color:white;
+    border-color: gray;
+}
+
+.icon#help {
+    position: absolute;
+    left:20px;
+    top:10px;
+    padding:0 10px;
+}
+
+.icon#info{
+    position: absolute;
+    right:20px;
+    top:10px;
+    padding:0 14px;
 }
 
 #table{
     max-width: 300px;
-    margin: 30px auto;
+    margin: 10px auto;
     font-size: 1em;
+    user-select: none;
 
     display: grid;
     grid-template-columns:  auto auto auto auto auto;
-    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px;
     grid-gap: 10px;
 }
 
 #table div{
     border:solid 1px;
     border-radius: 1px;
+    padding:15px 0;
+    width: 50px;
+}
+
+.invisible-container{
+    position:absolute;
+    top:0;
+    left:0;
+    font-size:16px;
+    background-color: whitesmoke;
+    width: 100%;
+    min-height: 100%;
+}
+
+#footer{
+    background-color: #1c1d20;
+    padding: 10px 0;
+    color: gray;
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
 }
