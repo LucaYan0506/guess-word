@@ -12,10 +12,20 @@ function enter_key(value){
                 return;
             }
         }
-        if (check_word(word) == true){
-            locked[row] = true;
-            locked[row + 1] = false;
-        }
+
+        //check if the words exists 
+        fetch(`/validating_word?word=${word.toLowerCase()}`)
+        .then(response => response.json()   )
+        .then(data => {
+            if (data.result){
+                locked[row] = true;
+                locked[row + 1] = false;
+            }
+            else{
+                alert(`${word} is not in the our word list`);
+            }
+        })
+
     }   
     else if (value == 'DEL' & curr_index != -1){
         let curr_cell = document.querySelector(`#cell-${curr_index}`);
@@ -46,11 +56,3 @@ window.addEventListener('keyup',(event) => {
     else if (key_value.length == 1 & key_value >= 'A' && key_value <= 'Z')
         enter_key(key_value);
 })
-
-//check if the words exists 
-function check_word(word){
-    
-    
-    //if the word exists check if it is the correct word
-    return true;
-}

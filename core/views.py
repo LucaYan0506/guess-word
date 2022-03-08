@@ -4,7 +4,7 @@ import random
 from datetime import datetime
 
 # Create your views here.
-today_word = ""
+today_word = "world"
 def index_view(request):
     diff = datetime.strptime("23:59:59", "%H:%M:%S") - datetime.strptime(datetime.now().time().strftime("%H:%M:%S" ), "%H:%M:%S")
     diff = str(diff).replace(":","h ",1)
@@ -18,13 +18,31 @@ def index_view(request):
     })
 
 def validating_word(request):
+    global today_word
+    temp = today_word
     word = request.GET.get('word')
+    word = word.lower()
+
+    check_letter = []
+
+    for i in range(5):
+        check_letter.append([word[i] in temp, word[i] == today_word[i]])
+        if (word[i] in temp):
+            temp = temp[:temp.find(word[i])] + " " + temp[temp.find(word[i]) + 1:]
 
     f = open("word_list.txt", "r")
     for x in f:
         if (x.replace("\n","") == word):
             f.close()
-            return JsonResponse({'result': True},safe=False)
+            return JsonResponse({
+                'result': True,
+                        #if letter is correct  #if position is correct
+                "0": check_letter[0],
+                "1": check_letter[1],
+                "2": check_letter[2],
+                "3": check_letter[3],
+                "4": check_letter[4],
+                },safe=False)
     f.close()
 
     return JsonResponse({'result': False},safe=False)
