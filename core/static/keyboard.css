@@ -3,7 +3,7 @@
     width: 100%;
     background-color: rgb(255, 219, 174);
     padding: 10px calc(50% - 235px);
-    position:fixed;
+    position:absolute;
     bottom:0;
     user-select: none;
 }
@@ -28,7 +28,6 @@
     width: 12%;
     max-width: 55px;
     max-height: 55px;
-    border: black 1px solid;
     border-radius: 20%;
     background: rgb(235, 232, 232);
     margin-left: 5px;

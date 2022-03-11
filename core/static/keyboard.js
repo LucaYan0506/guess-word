@@ -20,6 +20,32 @@ function enter_key(value){
             if (data.result){
                 locked[row] = true;
                 locked[row + 1] = false;
+                let correct_letters = 0
+                for (let i = 0; i < 5; i++){
+                    const cell = document.querySelector(`#cell-${row * 5 + i}`)
+                    const key = document.querySelector(`.${cell.innerHTML.toLowerCase()}`)
+                    cell.style.color = "white";
+                    key.style.color = "white";
+
+                    if (data[i.toString()][0] == true & data[i.toString()][1] == false){
+                        cell.style.background = "gold"
+                        key.style.background = "gold"
+                    }
+                    else if (data[i.toString()][0] == true & data[i.toString()][1] == true){
+                        cell.style.background = "green"
+                        key.style.background = "green"
+                        correct_letters += 1;
+                    }
+                    else{
+                        cell.style.background = "gray"
+                        key.style.background = "gray"
+                    }
+                    
+                    if (correct_letters == 5){
+                        alert("Correct");
+                        locked[row + 1] = true;
+                    }
+                }
             }
             else{
                 alert(`${word} is not in the our word list`);

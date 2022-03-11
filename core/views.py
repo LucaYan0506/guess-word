@@ -26,7 +26,8 @@ def validating_word(request):
     check_letter = []
 
     for i in range(5):
-        check_letter.append([word[i] in temp, word[i] == today_word[i]])
+                        #if letter is correct  #if position is correct
+        check_letter.append([word[i] in temp, word[i] == temp[i]])
         if (word[i] in temp):
             temp = temp[:temp.find(word[i])] + " " + temp[temp.find(word[i]) + 1:]
 
@@ -36,7 +37,6 @@ def validating_word(request):
             f.close()
             return JsonResponse({
                 'result': True,
-                        #if letter is correct  #if position is correct
                 "0": check_letter[0],
                 "1": check_letter[1],
                 "2": check_letter[2],
