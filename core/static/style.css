@@ -6,7 +6,7 @@ body{
 
 .body{
     position:relative;
-    min-height: 550px;
+    min-height: 630px;
 }
 
 .icon{
@@ -35,6 +35,15 @@ body{
     right:20px;
     top:10px;
     padding:0 14px;
+}
+
+#custom-alert{
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 22px;
+    color: white;
+    display: inline-block;
+    margin:2px
 }
 
 #table{
@@ -83,4 +92,38 @@ body{
     top:0;
     height: 100vh;
     width: 100vw;
+    z-index: 1;
+}
+
+#rule{
+    text-align: left;
+    background-color: whitesmoke;
+    display: block;
+    margin:min(17vh,calc(50vh - 125px)) auto 0 auto;
+    padding: 10px;
+    width: 50%;
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative;
+}
+
+@keyframes fade-in {
+    0%{
+        opacity: 1;
+        background-color: black;
+    }
+    100%{
+        background-color: white;
+        opacity: 0;
+    }
+}
+@keyframes fade-out {
+    0%{
+        opacity: 0;
+        background-color: white;
+    }
+    100%{
+        background-color: black;
+        opacity: 1;
+    }
 }

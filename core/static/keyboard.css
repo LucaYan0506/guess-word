@@ -3,7 +3,7 @@
     width: 100%;
     background-color: rgb(255, 219, 174);
     padding: 10px calc(50% - 235px);
-    position:absolute;
+    position:fixed;
     bottom:0;
     user-select: none;
 }

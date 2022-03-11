@@ -29,7 +29,6 @@ setInterval(() => {
     timer.innerHTML = hours + "h " + min + "min " + sec + "sec";
 }, 1000);
 
-
 function show_hide_info_view(){
     const info_view = document.querySelector('.info-container');
     const keyboard = document.querySelector('.keyboard')
@@ -45,4 +44,18 @@ function show_hide_info_view(){
     }
 }
 
+function show_hide_rule_view(){
+    const rule_view = document.querySelector('.rule-container');
 
+    if (rule_view.style.display == 'block'){
+        rule_view.style.display = 'none';
+    }else{
+        rule_view.style.display = 'block';
+    }
+}
+
+document.querySelector('.rule-container').addEventListener('click',event => {
+    if (event.target == document.querySelector('.rule-container')){
+        show_hide_rule_view()
+    }
+})

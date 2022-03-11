@@ -11,13 +11,15 @@
 </head>
 <body>
     <h1 style="margin:10px 0"><a href="/" style="text-decoration: none;color:black">Guess word</a></h1>
-    <b  class="icon" id="help">?</b>
+    <b  class="icon" id="help" onclick="show_hide_rule_view()">?</b>
     <b  class="icon" id="info" onclick="show_hide_info_view()">i</b>
     <hr>
 
     <div class="body">
         <h3 style="font-weight: normal;margin:0;">The word will update after</h3>
         {% block timer %}{% endblock timer %}
+        <div id="custom-alert-container" style="height: 30px;padding:18px">
+        </div>
         {% block body %}{% endblock body %}
     </div>
 
@@ -45,8 +47,20 @@
       </div>
     </div>
 
-    <div class="rule-container">
-      
+    <div class="rule-container" style="display:none">
+      <div id="rule">
+          <label onclick="show_hide_rule_view()" style="cursor: pointer;position:absolute;right: 15px;user-select: none;">X</label>
+          <br>
+          You have 6 changes to guess the correct word. <br>
+          Each guess must be a valid 5-letter English word. <br><br>
+          After each guess we will give you some suggestion: <br>
+          <img src="{% static 'Example1.jpg' %}" style="width:100%;max-width: 307px;"><br>
+          The letter <b>W</b> is in the <i>word</i> and in the correct position.
+          <img src="{% static 'Example2.jpg' %}" style="width:100%;max-width: 307px;"><br>
+          The letter <b>O</b> is in the <i>word</i> but in the wront position.
+          <img src="{% static 'Example3.jpg' %}" style="width:100%;max-width: 307px;"><br>
+          The letter <b>T</b> is not in the <i>word</i>.<br><br>
+      </div>
     </div>
 
     <div class="keyboard">

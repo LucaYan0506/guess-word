@@ -1,6 +1,20 @@
 let curr_index = -1;
 let locked = [false,true,true,true,true,true];
 
+function custom_alert(message){
+    const elem = document.createElement('span')
+    elem.id = 'custom-alert';
+    elem.textContent = message;
+    document.querySelector('#custom-alert-container').append(elem);
+    elem.style.animation = "fade-out 1s forwards";
+    setTimeout(() => {
+        elem.style.animation = "fade-in 1s forwards";
+        setTimeout(() => {
+            document.querySelector('#custom-alert-container').removeChild(elem);
+        }, 1000);
+    }, 2000);
+}
+
 function enter_key(value){
     if (value == 'Enter'){
         let row = Math.trunc(curr_index/5);
@@ -8,7 +22,7 @@ function enter_key(value){
         for (let i = 0; i < 5; i++){
             word += document.querySelector(`#cell-${row * 5 + i}`).innerHTML;
             if (document.querySelector(`#cell-${row * 5 + i}`).innerHTML == ""){
-                alert("Not enough letters");
+                custom_alert("Not enough letters");
                 return;
             }
         }
@@ -28,8 +42,8 @@ function enter_key(value){
                     key.style.color = "white";
 
                     if (data[i.toString()][0] == true & data[i.toString()][1] == false){
-                        cell.style.background = "gold"
-                        key.style.background = "gold"
+                        cell.style.background = "#ffbf00"
+                        key.style.background = "#ffbf00"
                     }
                     else if (data[i.toString()][0] == true & data[i.toString()][1] == true){
                         cell.style.background = "green"
@@ -42,13 +56,13 @@ function enter_key(value){
                     }
                     
                     if (correct_letters == 5){
-                        alert("Correct");
+                        custom_alert("Correct");
                         locked[row + 1] = true;
                     }
                 }
             }
             else{
-                alert(`${word} is not in the our word list`);
+                custom_alert(`${word} is not in the our word list`);
             }
         })
 
