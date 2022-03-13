@@ -2,8 +2,10 @@ from __future__ import absolute_import, unicode_literals
 from celery import shared_task
 from Guess_word.celery import app
 from .models import Words
-import random,datetime
+import random,datetime,os
 
+app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
+        CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
 
 @shared_task
 def get_random_word():
