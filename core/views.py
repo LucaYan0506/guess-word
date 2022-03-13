@@ -1,10 +1,9 @@
 from django.shortcuts import render
-from django.http import JsonResponse
-import random
+from django.http import JsonResponse,HttpResponseRedirect
 from datetime import datetime
+from core.models import Words
 
 # Create your views here.
-today_word = "world"
 def index_view(request):
     diff = datetime.strptime("23:59:59", "%H:%M:%S") - datetime.strptime(datetime.now().time().strftime("%H:%M:%S" ), "%H:%M:%S")
     diff = str(diff).replace(":","h ",1)
@@ -18,8 +17,7 @@ def index_view(request):
     })
 
 def validating_word(request):
-    global today_word
-    temp = today_word
+    today_word = Words.objects.last().word
     word = request.GET.get('word')
     word = word.lower()
 
@@ -27,9 +25,9 @@ def validating_word(request):
 
     for i in range(5):
                         #if letter is correct  #if position is correct
-        check_letter.append([word[i] in temp, word[i] == temp[i]])
-        if (word[i] in temp):
-            temp = temp[:temp.find(word[i])] + " " + temp[temp.find(word[i]) + 1:]
+        check_letter.append([word[i] in today_word, word[i] == today_word[i]])
+        if (word[i] in today_word):
+            today_word = today_word[:today_word.find(word[i])] + " " + today_word[today_word.find(word[i]) + 1:]
 
     f = open("word_list.txt", "r")
     for x in f:
@@ -46,15 +44,3 @@ def validating_word(request):
     f.close()
 
     return JsonResponse({'result': False},safe=False)
-
-def get_random_word(request):
-    global today_word
-    random_n = random.randint(1, 32246)
-
-    f = open("word_list.txt", "r")
-    for x in range(random_n):
-        f.readline()
-    today_word = f.readline().replace("\n","")
-    f.close()
-
-    return JsonResponse({'today_word': today_word},safe=False)
