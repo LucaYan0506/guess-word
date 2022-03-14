@@ -4,7 +4,7 @@ from celery import Celery
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE','Guess_word.settings')
 
-app = Celery('project1')
+app = Celery('Guess_word')
 
 app.config_from_object('django.conf:settings', namespace= 'CELERY')
 
