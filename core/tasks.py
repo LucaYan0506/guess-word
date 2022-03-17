@@ -18,6 +18,7 @@ def get_random_word():
     f.close()
     words = Words(word=today_word, date=datetime.datetime.now())
     words.save()
+    return today_word
 
 @shared_task
 def test1(test):
