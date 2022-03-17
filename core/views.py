@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse,HttpResponseRedirect
 from datetime import datetime
 from core.models import Words
+today_word = "world"
 
 # Create your views here.
 def index_view(request):
@@ -17,7 +18,8 @@ def index_view(request):
     })
 
 def validating_word(request):
-    today_word = Words.objects.last().word
+    global today_word
+    temp = today_word
     word = request.GET.get('word')
     word = word.lower()
 
@@ -25,9 +27,9 @@ def validating_word(request):
 
     for i in range(5):
                         #if letter is correct  #if position is correct
-        check_letter.append([word[i] in today_word, word[i] == today_word[i]])
-        if (word[i] in today_word):
-            today_word = today_word[:today_word.find(word[i])] + " " + today_word[today_word.find(word[i]) + 1:]
+        check_letter.append([word[i] in temp, word[i] == temp[i]])
+        if (word[i] in temp):
+            temp = temp[:temp.find(word[i])] + " " + temp[temp.find(word[i]) + 1:]
 
     f = open("word_list.txt", "r")
     for x in f:
