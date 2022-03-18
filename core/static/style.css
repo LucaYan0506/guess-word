@@ -143,7 +143,11 @@ body{
     #rule{
         width: calc(100% - 30px);
     }
-    .icon:hover{
+    .support-container #support-me{
+        left: 5%;
+        right: 5%;
+        top: 20%;
+        bottom: 20%;
     }
 }
 

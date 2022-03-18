@@ -59,3 +59,9 @@ div.backspace {
     border-radius: 10px;
     font-size: 18px;
 }
+
+@media screen and (max-width:600px){
+    .row div:hover {
+        background: rgb(235, 232, 232);
+    }
+}
