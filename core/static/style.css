@@ -143,6 +143,8 @@ body{
     #rule{
         width: calc(100% - 30px);
     }
+    .icon:hover{
+    }
 }
 
 @keyframes fade-in {
