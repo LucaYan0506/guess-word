@@ -59,3 +59,18 @@ document.querySelector('.rule-container').addEventListener('click',event => {
         show_hide_rule_view()
     }
 })
+
+
+//functions for support-container
+document.querySelector('.support-container').addEventListener('click',(event) => {
+    if (event.target == document.querySelector('.support-container')){
+        close_windows();
+    }
+})
+
+function close_windows(){
+    document.querySelector('.support-container').style.display = 'none';
+}
+function open_windows(){
+    document.querySelector('.support-container').style.display = '';
+}

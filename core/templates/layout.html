@@ -25,6 +25,7 @@
 
     <div class="info-container" style="display:none">
       <h2>About me</h2>
+      <div id="content">
           My name is Zhong and I'm a student at The Manchester College. <br>
           During my free time, I did this website which is inspired by <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">wordle</a>. <br>
           I've also done some other projects (click <a href="https://github.com/LucaYan0506" target="_blank">here</a> to see my projects). <br>
@@ -36,6 +37,7 @@
 
           If you have any suggestion or comments about it, pls contact me:<br>
           <a href="mailto:lucayan0506@gmail.com">Zhong: lucayan0506@gmail.com</a>
+      </div>
       <div id="footer">
           <a href="https://leetcode.com/lucayan0506/" target="_blank"><img src="https://api.iconify.design/simple-icons/leetcode.svg?width=48" alt="leetcode"></a>
           <a href="https://github.com/LucaYan0506/guess-word" target="_blank"><img src="https://ytmp3.herokuapp.com/static/github.png" alt="github"></a>
@@ -62,6 +64,22 @@
           The letter <b>T</b> is not in the <i>word</i>.<br><br>
       </div>
     </div>
+
+    <div class="support-container" style="display:none">
+      <div id="support-me">
+          <h1 style="text-align: center;margin-top:3px;font-size: 2rem;width:100%;"> <label style="width:calc(100% - 50px);white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">DONATE</label>
+              <button style="float:right;margin-right:3px" type="button" class="btn btn-light" onclick="close_windows()">X</button>
+          </h1>
+          <div style="overflow-y:auto;height:calc(100% - 80px)">
+              Thank you for your willingness to support me! Your donation will be used to support our development and maintenance costs. <br><br>
+              If you would like to offer us a donation, please click <a href="https://settleup.starlingbank.com/zhongyiyan?message=To%20support%20his%20websites" target="_blank">here</a> or scan the QR Code below<br>
+              <img src="{% static 'QRCode2.jpg' %}" style="width: 100%;max-width: 180px;" alt=""><br>
+              You can also support us through WeChat by scanning the QR Code below<br>
+              <img src="{% static 'QrCode.jpg' %}" style="width: 100%;max-width: 180px;" alt=""><br>
+              Thank you again for your donation! <br>
+          </div>
+      </div>
+  </div>
 
     <div class="keyboard">
         <div class="row alphaUpperLine">
