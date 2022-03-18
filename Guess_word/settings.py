@@ -133,7 +133,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CELERY_BEAT_SCHEDULE = {
     'scheduled_task':{
         "task": "core.tasks.get_random_word",
-        'schedule':20.0,
+        'schedule':crontab(minute=59, hour="23"),
         'args':(),
     }
 }
