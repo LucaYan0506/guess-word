@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse,HttpResponseRedirect
 from datetime import datetime
 from core.models import Words
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def index_view(request):
@@ -44,3 +45,16 @@ def validating_word(request):
     f.close()
 
     return JsonResponse({'result': False},safe=False)
+
+
+@csrf_exempt
+def update_word(request):
+    if (request.method == 'POST'):
+        if (request.POST['token'] == 'jqw"£fds}dsfefhqwjehf23kasdfa!£*(£*$^"whfja"*JFKEAHr439'):
+            today_word = request.POST['new_word']
+            words = Words(word=today_word, date=datetime.now())
+            words.save()
+            print('dd')
+            return JsonResponse({'result':'1'},safe=False)
+    return JsonResponse({'result':'0'},safe=False)
+    

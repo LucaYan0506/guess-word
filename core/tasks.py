@@ -1,9 +1,8 @@
 from __future__ import absolute_import, unicode_literals
 from celery import shared_task
 from Guess_word.celery import app
-from .models import Words
-import random,datetime,os
-
+import random,os
+import requests
 app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
         CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
 
@@ -16,10 +15,17 @@ def get_random_word():
             f.readline()
         today_word = f.readline().replace("\n","")
         f.close()
-        words = Words(word=today_word, date=datetime.datetime.now())
-        words.save()
-        print(today_word)
-        return 1
+      
+        url = 'http://127.0.0.1:8000/ksdjlfasadfasjfklha/'
+        
+        myobj = {
+            'token':'jqw"£fds}dsfefhqwjehf23kasdfa!£*(£*$^"whfja"*JFKEAHr439',
+            'new_word': today_word
+            }
+
+        x = requests.post(url, data = myobj)
+
+        return x.text
 
 @shared_task
 def test1(test):
