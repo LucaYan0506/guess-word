@@ -130,10 +130,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #using celery-beat to run a task everyday
-CELERY_BEAT_SCHEDULE = {
-    'scheduled_task':{
-        "task": "core.tasks.get_random_word",
-        'schedule':60.00,
-        'args':(),
-    }
-}
+# CELERY_BEAT_SCHEDULE = {
+#     'scheduled_task':{
+#         "task": "core.tasks.get_random_word",
+#         'schedule':60.00,
+#         'args':(),
+#     }
+# }
