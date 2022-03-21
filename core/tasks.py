@@ -8,9 +8,9 @@ app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
 
 @shared_task
 def get_random_word():
-        random_n = random.randint(1, 32246)
+        random_n = random.randint(1, 5756)
 
-        f = open("word_list.txt", "r")
+        f = open("guess_word_list.txt", "r")
         for x in range(random_n):
             f.readline()
         today_word = f.readline().replace("\n","")
