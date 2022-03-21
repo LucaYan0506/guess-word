@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pnx^x*ec$mx)3ui!sc#co*&m)ybu2)h+mcrd2pc01xi_t383sn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['guess-word1.herokuapp.com','127.0.0.1']
 
@@ -133,7 +133,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CELERY_BEAT_SCHEDULE = {
     'scheduled_task':{
         "task": "core.tasks.get_random_word",
-        'schedule':crontab(minute=10, hour=18),
+        'schedule':crontab(minute=13, hour=18),
         'args':(),
     }
 }
