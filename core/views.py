@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import JsonResponse,HttpResponseRedirect
+from django.http import JsonResponse
+from .tasks import get_random_word
 from datetime import datetime
 from core.models import Words
 from django.views.decorators.csrf import csrf_exempt
@@ -18,6 +19,10 @@ def index_view(request):
     })
 
 def validating_word(request):
+    if Words.objects.last().date != datetime.today().date():
+        get_random_word()
+        print('not match')
+
     today_word = Words.objects.last().word
     word = request.GET.get('word')
     word = word.lower()

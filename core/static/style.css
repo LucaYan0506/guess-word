@@ -32,9 +32,16 @@ body{
 
 .icon#info{
     position: absolute;
-    right:20px;
+    left:80px;
     top:10px;
     padding:0 17px;
+}
+
+.icon#account{
+    position: absolute;
+    right:20px;
+    top:10px;
+    padding:0 10px;
 }
 
 #custom-alert{
