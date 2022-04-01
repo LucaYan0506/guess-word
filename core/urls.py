@@ -10,4 +10,5 @@ urlpatterns = [
     path('unlimited/',views.unlimited_view, name="unlimited"),
     path('validate_words/',views.validate_words, name="validate_words"),
     path('next_word/',views.next_word, name="next_word"),
+    path('about/',views.about_view, name="about"),
 ]

@@ -2,6 +2,10 @@
 
 {% block h1 %}Guess another word{% endblock h1 %}
 
+{% block custom-alert-container %}
+  <div id="custom-alert-container" style="height: 30px;padding:18px"></div>
+{% endblock custom-alert-container %}
+
 {% block body %}
     <div id="table" style="">
         {% for i in range %}
@@ -53,3 +57,5 @@
       </div>
     </div>
 {% endblock body %}
+
+{% block mode %}Today word{% endblock mode %}

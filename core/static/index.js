@@ -1,13 +1,14 @@
 function show_hide_info_view(){
-    const info_view = document.querySelector('.info-container');
-    const keyboard = document.querySelector('.keyboard')
+    location.replace('/about')
+}
+
+function show_hide_menu_view(){
+    const info_view = document.querySelector('.menu-container');
     const body = document.querySelector('.body')
     if (info_view.style.display == 'block'){
-        keyboard.style.display = 'block';
         body.style.display = 'block';
         info_view.style.display = 'none'
     }else{
-        keyboard.style.display = 'none';
         body.style.display = 'none';
         info_view.style.display = 'block'
     }
@@ -47,8 +48,8 @@ function open_windows(){
 function guess_more_option(){
     title = document.querySelector('h1 a');
     
-    if (title.innerHTML == 'Guess another word')
-        location.replace('/');
-    else
+    if (title.innerHTML == 'Guess today word')
         location.replace("/unlimited");
+    else
+        location.replace('/');
 }

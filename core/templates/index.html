@@ -6,6 +6,10 @@
 <h3 id="timer" style="margin:0;">{{time}}</h3>
 {% endblock timer %}
 
+{% block custom-alert-container %}
+  <div id="custom-alert-container" style="height: 30px;padding:18px"></div>
+{% endblock custom-alert-container %}
+
 {% block body %}
     <div id="table">
         {% for i in range %}
@@ -88,3 +92,4 @@
 }, 1000);
     </script>
 {% endblock body %}
+{% block mode %}Unlimited words{% endblock mode %}

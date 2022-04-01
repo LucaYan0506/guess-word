@@ -70,6 +70,14 @@ body{
     background-image: url(donation_inverted.png);
 }
 
+#Hamburger-menu{
+    cursor: pointer;
+    position: absolute;
+    left:10px;
+    top:10px;
+    width: 46px;
+}
+
 #custom-alert{
     border-radius: 10px;
     padding: 10px;
@@ -101,12 +109,11 @@ body{
 
 .info-container{
     position:absolute;
-    top:67px;
     left:0;
     font-size:16px;
     background-color: whitesmoke;
     width: 100%;
-    min-height: calc(100vh - 67px);
+    height: 100%;
 }
 
 .info-container #content{
@@ -172,6 +179,28 @@ body{
     box-shadow: 0 0 0.6em #000;
 }
 
+.menu-container{
+    display: block;
+    position: absolute;
+    left:0px;
+    width: 100%;
+    min-height: calc(100vh - 67px);
+    text-align: left;
+    background-color: whitesmoke;
+}
+
+.menu-container #option{
+    cursor: pointer;
+    border-radius: 0.25rem;
+    padding: 10px;
+    margin:3px 10px;
+    text-align: left;
+}
+
+.menu-container #option:hover{
+    background-color: gray;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #007bff;
@@ -205,6 +234,12 @@ body{
         right: 5%;
         top: 20%;
         bottom: 20%;
+    }
+    .icon{
+        display: none;
+    }
+    #Hamburger-menu{
+        display: block!important;
     }
 }
 

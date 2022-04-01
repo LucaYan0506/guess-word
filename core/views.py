@@ -105,3 +105,6 @@ def update_word(request):
                 print('word already exists')
     return JsonResponse({'result':'0'},safe=False)
     
+
+def about_view(request):
+    return render(request,'about.html')
