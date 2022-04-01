@@ -1,17 +1,15 @@
 {% extends 'layout.html' %}
 
-
-{% block timer %}
-<h3 style="font-weight: normal;margin:0;">The word will update after</h3>
-<h3 id="timer" style="margin:0;">{{time}}</h3>
-{% endblock timer %}
+{% block h1 %}Guess another word{% endblock h1 %}
 
 {% block body %}
-    <div id="table">
+    <div id="table" style="">
         {% for i in range %}
         <div id="cell-{{i}}"></div>
         {% endfor %}
     </div>
+
+    <button class="btn btn-primary" style="min-width:302px;cursor: pointer;" onmousedown="next_word()">Next word</button>
 
     <div class="keyboard">
         <div class="row alphaUpperLine">
@@ -54,37 +52,4 @@
         </div>
       </div>
     </div>
-
-    <script>
-      setInterval(() => {
-    let timer = document.querySelector('#timer');
-    
-    let sec = parseInt(timer.innerHTML.substr(10,2)) - 1;
-    let min = parseInt(timer.innerHTML.substr(4,2));
-    let hours = parseInt(timer.innerHTML.substr(0,2));
-
-
-    if (sec <= 0){
-        sec = 59;
-        min--;
-    }
-    if (min < 0){
-        min = 59;
-        hours--;
-    }
-
-    if (hours < 0){
-        location.reload();
-    } 
-
-    if (sec < 10)
-        sec = "0" + sec;
-    if (min < 10)
-        min = "0" + min;
-    if (hours < 10)
-        hours = "0" + hours;
-
-    timer.innerHTML = hours + "h " + min + "min " + sec + "sec";
-}, 1000);
-    </script>
 {% endblock body %}

@@ -8,16 +8,19 @@
     <title>Guess word</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'keyboard.css' %}">
+    {% block extra-style  %}
+
+    {% endblock extra-style %}
 </head>
 <body>
-    <h1 style="margin:10px 0"><a href="/" style="text-decoration: none;color:black">Guess word</a></h1>
+    <h1 style="margin:10px 0"><a href="/" style="text-decoration: none;color:black">{% block h1 %}Guess today word{% endblock h1 %}</a></h1>
     <b  class="icon" id="help" onclick="show_hide_rule_view()">?</b>
     <b  class="icon" id="info" onclick="show_hide_info_view()">i</b>
-    <b  class="icon" id="account" onclick="alert('working in progress')"><img src="{% static 'account.png' %}" style="width:30px" alt="account"></b>
+    <b  class="icon" id="support" onclick="open_windows()"></b>
+    <b  class="icon" id="more" onclick="guess_more_option()"></b>
     <hr>
 
     <div class="body">
-        <h3 style="font-weight: normal;margin:0;">The word will update after</h3>
         {% block timer %}{% endblock timer %}
         <div id="custom-alert-container" style="height: 30px;padding:18px">
         </div>
@@ -81,48 +84,6 @@
           </div>
       </div>
   </div>
-
-    <div class="keyboard">
-        <div class="row alphaUpperLine">
-          <div class="q" onclick="enter_key(this.innerHTML)">Q</div>
-          <div class="w" onclick="enter_key(this.innerHTML)">W</div>
-          <div class="e" onclick="enter_key(this.innerHTML)">E</div>
-          <div class="r" onclick="enter_key(this.innerHTML)">R</div>
-          <div class="t" onclick="enter_key(this.innerHTML)">T</div>
-          <div class="y" onclick="enter_key(this.innerHTML)">Y</div>
-          <div class="u" onclick="enter_key(this.innerHTML)">U</div>
-          <div class="i" onclick="enter_key(this.innerHTML)">I</div>
-          <div class="o" onclick="enter_key(this.innerHTML)">O</div>
-          <div class="p" onclick="enter_key(this.innerHTML)">P</div>
-        </div>
-
-        <div class="row alphaMiddleLine">
-          <div class="extra-space"></div>
-          <div class="a" onclick="enter_key(this.innerHTML)">A</div>
-          <div class="s" onclick="enter_key(this.innerHTML)">S</div>
-          <div class="d" onclick="enter_key(this.innerHTML)">D</div>
-          <div class="f" onclick="enter_key(this.innerHTML)">F</div>
-          <div class="g" onclick="enter_key(this.innerHTML)">G</div>
-          <div class="h" onclick="enter_key(this.innerHTML)">H</div>
-          <div class="j" onclick="enter_key(this.innerHTML)">J</div>
-          <div class="k" onclick="enter_key(this.innerHTML)">K</div>
-          <div class="l" onclick="enter_key(this.innerHTML)">L</div>
-          <div class="extra-space"></div>
-        </div>
-
-        <div class="row alphaLowerLine">
-          <div class="enter" onclick="enter_key(this.innerHTML)">Enter</div>
-          <div class="z" onclick="enter_key(this.innerHTML)">Z</div>
-          <div class="x" onclick="enter_key(this.innerHTML)">X</div>
-          <div class="c" onclick="enter_key(this.innerHTML)">C</div>
-          <div class="v" onclick="enter_key(this.innerHTML)">V</div>
-          <div class="b" onclick="enter_key(this.innerHTML)">B</div>
-          <div class="n" onclick="enter_key(this.innerHTML)">N</div>
-          <div class="m" onclick="enter_key(this.innerHTML)">M</div>
-          <div class="backspace" onclick="enter_key(this.innerHTML)">DEL</div>
-        </div>
-      </div>
-    </div>
 
     <script src="{% static 'index.js'%}"></script>
     <script src="{% static 'keyboard.js'%}"></script>

@@ -26,9 +26,12 @@ function enter_key(value){
                 return;
             }
         }
+        let url = `/validate_today_word?word=`
+        if (document.querySelector('h1 a').innerHTML == 'Guess another word')
+            url = `/validate_words?word=`;
 
-        //check if the words exists 
-        fetch(`/validating_word?word=${word.toLowerCase()}`)
+            //check if the words exists 
+        fetch(`${url}${word.toLowerCase()}`)
         .then(response => response.json()   )
         .then(data => {
             if (data.result){
@@ -96,3 +99,10 @@ window.addEventListener('keyup',(event) => {
     else if (key_value.length == 1 & key_value >= 'A' && key_value <= 'Z')
         enter_key(key_value);
 })
+
+function next_word(){
+    if (confirm("Do you want to guess the next word")){
+        fetch(`/next_word/`)
+        .then(location.reload())
+    }
+}
