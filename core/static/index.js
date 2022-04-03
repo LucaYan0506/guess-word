@@ -5,13 +5,11 @@ function show_hide_info_view(){
 function show_hide_menu_view(){
     const info_view = document.querySelector('.menu-container');
     const body = document.querySelector('.body')
-    if (info_view.style.display == 'block'){
-        body.style.display = 'block';
+    if (info_view.style.display == 'block')
         info_view.style.display = 'none'
-    }else{
-        body.style.display = 'none';
+    else
         info_view.style.display = 'block'
-    }
+    
 }
 
 function show_hide_rule_view(){
