@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'django_celery_beat'
+    'django_celery_beat',
+    'django.contrib.sitemaps'
 ]
 
 MIDDLEWARE = [
