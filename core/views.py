@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def index_view(request):
-    if Words.objects.last().date != datetime.today().date():
+    if Words.objects.last() == None or Words.objects.last().date != datetime.today().date():
         get_random_word()
         print('not match')
 
@@ -28,7 +28,7 @@ def unlimited_view(request):
     })
 
 def validate_today_word(request):
-    if Words.objects.last().date != datetime.today().date():
+    if Words.objects.last() == None or Words.objects.last().date != datetime.today().date():
         get_random_word()
         print('not match')
 
@@ -100,7 +100,7 @@ def next_word(request):
 def update_word(request):
     if (request.method == 'POST'):
         if (request.POST['token'] == 'jqw"£fds}dsfefhqwjehf23kasdfa!£*(£*$^"whfja"*JFKEAHr439'):
-            if Words.objects.last().date != datetime.today().date():
+            if Words.objects.last() == None or Words.objects.last().date != datetime.today().date():
                 today_word = request.POST['new_word']
                 words = Words(word=today_word, date=datetime.now())
                 words.save()
