@@ -7,6 +7,10 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def index_view(request):
+    if Words.objects.last().date != datetime.today().date():
+        get_random_word()
+        print('not match')
+
     diff = datetime.strptime("23:59:59", "%H:%M:%S") - datetime.strptime(datetime.now().time().strftime("%H:%M:%S" ), "%H:%M:%S")
     diff = str(diff).replace(":","h ",1)
     if (diff[1] == 'h'):

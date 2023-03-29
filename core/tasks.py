@@ -1,16 +1,11 @@
 from __future__ import absolute_import, unicode_literals
-from celery import shared_task
-from Guess_word.celery import app
-import random,os
+import random
 import requests
-app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
-        CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
 
-@shared_task
 def get_random_word():
         today_word = generate_word() 
-      
-        url = 'https://guess-word1.herokuapp.com/ksdjlfasadfasjfklha/'
+
+        url = 'http://127.0.0.1:8000/ksdjlfasadfasjfklha/'
         
         myobj = {
             'token':'jqw"£fds}dsfefhqwjehf23kasdfa!£*(£*$^"whfja"*JFKEAHr439',
@@ -30,7 +25,3 @@ def generate_word():
     f.close()
 
     return res
-
-@shared_task
-def test1(test):
-    return test
