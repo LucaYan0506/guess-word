@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from pydoc import locate
-from celery.schedules import crontab
 import django_heroku
 import dj_database_url
 from decouple import config 
@@ -43,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'django_celery_beat',
     'django.contrib.sitemaps'
 ]
 
@@ -133,12 +131,3 @@ django_heroku.settings(locals())
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-#using celery-beat to run a task everyday
-CELERY_BEAT_SCHEDULE = {
-    'scheduled_task':{
-        "task": "core.tasks.get_random_word",
-        'schedule':crontab(minute='01', hour='00'),
-        'args':(),
-    }
-}
