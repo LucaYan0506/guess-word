@@ -5,7 +5,7 @@ import requests
 def get_random_word():
         today_word = generate_word() 
 
-        url = 'http://127.0.0.1:8000/ksdjlfasadfasjfklha/'
+        url = 'https://lucayan4.pythonanywhere.com/ksdjlfasadfasjfklha/'
         
         myobj = {
             'token':'jqw"£fds}dsfefhqwjehf23kasdfa!£*(£*$^"whfja"*JFKEAHr439',
