@@ -17,7 +17,7 @@ def get_random_word():
         return x.text
 
 def generate_word():
-    random_n = random.randint(1, 5756)
+    random_n = random.randint(1, 4580)
 
     f = open("/home/lucayan4/guess-word/guess_word_list.txt", "r")
     for x in range(random_n):
