@@ -44,7 +44,7 @@ def validate_today_word(request):
         if (word[i] in today_word):
             today_word = today_word[:today_word.find(word[i])] + " " + today_word[today_word.find(word[i]) + 1:]
 
-    f = open("word_list.txt", "r")
+    f = open("/home/lucayan4/guess-word/word_list.txt", "r")
     for x in f:
         if (x.replace("\n","") == word):
             f.close()
@@ -76,7 +76,7 @@ def validate_words(request):
         if (word[i] in guess_word):
             guess_word = guess_word[:guess_word.find(word[i])] + " " + guess_word[guess_word.find(word[i]) + 1:]
 
-    f = open("word_list.txt", "r")
+    f = open("/home/lucayan4/guess-word/word_list.txt", "r")
     for x in f:
         if (x.replace("\n","") == word):
             f.close()
