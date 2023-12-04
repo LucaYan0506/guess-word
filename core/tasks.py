@@ -2,6 +2,7 @@ from __future__ import absolute_import, unicode_literals
 from core.models import Words
 import random
 import requests
+from datetime import datetime
 
 
 def get_random_word():
