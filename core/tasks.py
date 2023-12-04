@@ -1,18 +1,16 @@
 from __future__ import absolute_import, unicode_literals
+from core.models import Words
 import random
 import requests
 
+
 def get_random_word():
-        today_word = generate_word() 
-
-        url = 'https://lucayan4.pythonanywhere.com/ksdjlfasadfasjfklha/'
-        
-        myobj = {
-            'token':'jqw"£fds}dsfefhqwjehf23kasdfa!£*(£*$^"whfja"*JFKEAHr439',
-            'new_word': today_word
-            }
-
-        x = requests.post(url, data = myobj)
+        if Words.objects.last() == None or Words.objects.last().date != datetime.today().date():
+            today_word = generate_word() 
+            words = Words(word=today_word, date=datetime.now())
+            words.save()
+        else:
+            print('word already exists')
 
         return x.text
 

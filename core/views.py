@@ -95,20 +95,6 @@ def validate_words(request):
 def next_word(request):
     request.session['more-word'] = generate_word()
     return JsonResponse({'msg':'new word updated'},safe=False)
-
-@csrf_exempt
-def update_word(request):
-    if (request.method == 'POST'):
-        if (request.POST['token'] == 'jqw"£fds}dsfefhqwjehf23kasdfa!£*(£*$^"whfja"*JFKEAHr439'):
-            if Words.objects.last() == None or Words.objects.last().date != datetime.today().date():
-                today_word = request.POST['new_word']
-                words = Words(word=today_word, date=datetime.now())
-                words.save()
-                return JsonResponse({'result':'1'},safe=False)
-            else:
-                print('word already exists')
-    return JsonResponse({'result':'0'},safe=False)
-    
-
+ 
 def about_view(request):
     return render(request,'about.html')
