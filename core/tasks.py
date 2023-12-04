@@ -13,8 +13,6 @@ def get_random_word():
         else:
             print('word already exists')
 
-        return x.text
-
 def generate_word():
     random_n = random.randint(1, 4580)
 
